@@ -121,7 +121,7 @@ sudo nano /etc/hostapd/hostapd.conf
 
 Copiare la configurazione nel file hostapd.conf
 
-\# Wireless interface the interface used by the AP
+\# Wireless interface the interface used by the AP\
 interface=wlp3s0
 \# The wireless interface driver
 driver=nl80211
