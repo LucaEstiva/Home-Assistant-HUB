@@ -154,21 +154,21 @@ IP FORWARDING:</br>
 Editare il file /etc/sysctl.conf</br>
 sudo nano /etc/sysctl.conf</br>
 </br>
-/# Uncomment the next line to enable packet forwarding for IPv4</br>
-/# net.ipv4.ip_forward=1 Togliere il commento ( cancellare il carattere # ) a questa riga</br>
+\# Uncomment the next line to enable packet forwarding for IPv4</br>
+\# net.ipv4.ip_forward=1 Togliere il commento ( cancellare il carattere # ) a questa riga</br>
 Diventerà:</br>
-/# Uncomment the next line to enable packet forwarding for IPv4</br>
-net.ipv4.ip_forward=1</br></br>
+\# Uncomment the next line to enable packet forwarding for IPv4</br>
+net.ipv4.ip_forward=1</br>
 </br>
 Riavviare il computer:
 sudo reboot</br>
 </br>
-Verificare il valore del flag net.ipv4.ip_forward che deve essere 1
+Verificare il valore del flag net.ipv4.ip_forward che deve essere 1</br>
 sysctl net.ipv4.ip_forward</br>
 </br>
--------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------</br>
 Configurazione di Hostapd</br>
--------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------</br>
 </br>
 sudo nano /etc/hostapd/hostapd.conf
 </br>
