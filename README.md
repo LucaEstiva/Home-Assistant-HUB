@@ -215,3 +215,84 @@ wpa_passphrase=pawssword # La vostra password</br>
 wpa_key_mgmt=WPA-PSK</br>
 wpa_pairwise=TKIP</br>
 rsn_pairwise=CCMP</br>
+</br>
+##Editare il file /etc/default/hostapd</br>
+sudo nano /etc/default/hostapd</br>
+</br>
+Togliere il commento alla riga seguente e verificare che il percorso specificato "punti" al file hostapd.conf</br>
+DAEMON_CONF="/etc/hostapd/hostapd.conf"</br>
+
+Eseguire un test di hostapd:</br>
+sudo hostapd /etc/hostapd/hostapd.conf</br>
+Se non sono presenti errori o "blocchi" il nuovo AccessPoint verrà avviato. Terminare hostapd premendo CTRL+C</br>
+
+Installare hostapd come servizio, in questo modo l'AccesPoint sarà disponibile ad agni avvio del PC</br>
+sudo systemctl unmask hostapd</br>
+sudo systemctl enable hostapd</br>
+</br>
+Verificare lo stato del servizio:</br>
+sudo systemctl status hostapd.service o sudo service hostapd status</br>
+In caso di errori eseguire che aiutera a stabilire cosa non funziona</br>
+journalctl -xe</br>
+</br>
+
+-------------------------------------------------------------------------------------------------------</br>
+Abilitare il server DHCP isc-dhcp-server per l'interfaccia Bridge br0</br>
+-------------------------------------------------------------------------------------------------------</br>
+sudo nano /etc/default/isc-dhcp-server
+Specificare su quale interfaccia deve rispondere il server DHCP in questo modo:
+INTERFACESv4="br0"
+
+-------------------------------------------------------------------------------------------------------</br>
+Configurare il sever DHCP isc-dhcp-server</br>
+-------------------------------------------------------------------------------------------------------</br>
+sudo nano /etc/dhcp/dhcpd.conf</br>
+</br>
+Cercare le rige riportate di seguito e eliminare il carattere commento alle righe se presente:
+</br>
+# option definitions common to all supported networks...</br>
+option domain-name "domotica.org";</br>
+option domain-name-servers 8.8.8.8, 8.8.4.4;</br>
+</br>
+\# The ddns-updates-style parameter controls whether or not the server will</br>
+\# attempt to do a DNS update when a lease is confirmed. We default to the</br>
+\# behavior of the version 2 packages ('none', since DHCP v2 didn't</br>
+\# have support for DDNS.)</br>
+ddns-update-style none;</br>
+</br>
+\# If this DHCP server is the official DHCP server for the local</br>
+\# network, the authoritative directive should be uncommented.</br>
+authoritative;</br>
+</br>
+\# A slightly different configuration for an internal subnet.</br>
+subnet 192.168.2.0 netmask 255.255.255.0 {</br>
+ range 192.168.2.2 192.168.2.250;</br>
+ option domain-name-servers 8.8.8.8;</br>
+ option domain-name "domotica.org";</br>
+ option subnet-mask 255.255.255.0;</br>
+ option routers 192.168.2.1;</br>
+ option broadcast-address 192.168.2.255;</br>
+\# option domain-name-servers 192.168.1.1;</br>
+\# option ntp-servers 10.152.187.1;</br>
+ option netbios-name-servers 192.168.2.1;</br>
+ option netbios-node-type 2;</br>
+ default-lease-time -1;</br>
+ max-lease-time -1;</br>
+</br>
+</br>
+  \# Assegnare un indirizzo IP statico ai disposiviti utilizzando il MAC Address. Nella nostra rete abbiamo a disposizione gli
+  \# indirizzi IP da 192.168.2.2 a 192.168.2.254</br>
+  </br>
+  \# Assegnare un IP statico alla lampada Yeelight cucina</br>
+  host Yeelight_ceiling_cucina {</br>
+    hardware ethernet 00:00:00:00:00:00;</br>
+    fixed-address 192.168.2.130;</br>
+  }</br>
+  </br>
+  \# Assegnare un IP statico alla lampada Yeelight camera</br>
+  host Yeelight_ceiling_camera {</br>
+    hardware ethernet 00:00:00:00:00:00;</br>
+    fixed-address 192.168.2.131;</br>
+  }</br>
+</br>
+}
