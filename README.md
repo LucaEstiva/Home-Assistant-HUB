@@ -2,7 +2,7 @@
 
 <h1 style="color:red;">L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !</h1></br>
 
-I dispositivi con firmware Tasmota supportano il FAULT TOLLERANCE ( è possibile specificare più di una rete WiFi alla quale connettersi )</br>
+I dispositivi con firmware Tasmota supportano il FAULT TOLERANCE ( è possibile specificare più di una rete WiFi alla quale connettersi )</br>
 </br>
 #La ridondanza nelle infrastruttue di questo tipo dovrebbe essere fondamentale !</br>
 </br>
