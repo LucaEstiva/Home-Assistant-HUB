@@ -159,6 +159,27 @@ sudo service network-manager restart</br>
 ## Verificare che non siano presenti errori nella configurazione:</br>
 sudo service network-manager status</br>
 </br>
+-------------------------------------------------------------------------------------------------------</br>
+Verifica dello stato della scheda WiFi - Verrà aggiunta una guida dettagliata:</br>
+-------------------------------------------------------------------------------------------------------</br>
+Test eseguiti su scheda Atheros AR9462</br>
+Utilizzando il seguente comando è possibile verificare se la scheda di rete è disponibile:</br>
+sudo rfkill list</br>
+</br>
+Soft blocked: no</br>
+Hard blocked: yes</br>
+
+Se Soft Locked o Hard Locked hanno valore yes è possibile provare a utilizzare il comando:</br>
+sudo rfkill unblock all</br>
+</br>
+Tale comando però renderà disponibile la scheda solo per la sessione corrente...</br>
+</br>
+Altri comandi utili:</br>
+sudo nmcli r wifi on</br>
+sudo nmcli radio wifi off</br>
+
+sudo rfkill unblock wlan</br>
+sudo rfkill unblock wifi</br>
 
 -------------------------------------------------------------------------------------------------------</br>
 IP FORWARDING:</br>
@@ -181,7 +202,6 @@ sysctl net.ipv4.ip_forward</br>
 -------------------------------------------------------------------------------------------------------</br>
 Configurazione di Hostapd</br>
 -------------------------------------------------------------------------------------------------------</br>
-</br>
 sudo nano /etc/hostapd/hostapd.conf
 </br>
 Copiare la configurazione nel file hostapd.conf
