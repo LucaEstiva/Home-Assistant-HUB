@@ -79,7 +79,7 @@ managed=false</br>
 wifi.scan-rand-mac-address=no</br>
 </br>
 [keyfile]</br>
-/# Sostituire le coppie di 0 con i valori riportati da IFCONFING per l'interfaccia wlp_s0 o wlan</br>
+\# Sostituire le coppie di 0 con i valori riportati da IFCONFING per l'interfaccia wlp_s0 o wlan</br>
 unmanaged-devices=mac:00:00:00:00:00:00</br>
 </br>
 -------------------------------------------------------------------------------------------------------</br>
