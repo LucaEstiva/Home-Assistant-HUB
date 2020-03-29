@@ -142,9 +142,9 @@ iface br0 inet static</br>
  bridge_maxwait 0</br>
 </br>
 </br>
-# Riavviare il servizio Network Manager:</br>
+## Riavviare il servizio Network Manager:</br>
 sudo service network-manager restart</br>
-# Verificare che non siano presenti errori nella configurazione:</br>
+## Verificare che non siano presenti errori nella configurazione:</br>
 sudo service network-manager status</br>
 </br>
 
