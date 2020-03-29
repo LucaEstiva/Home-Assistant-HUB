@@ -51,7 +51,7 @@ sudo systemctl disable ModemManager</br>
 Rimuovere NETPLAN ( purtroppo crea problemi se vengono utilizzati Hostapd e isc-dhcp-server contemporaneamente )</br>
 -------------------------------------------------------------------------------------------------------</br>
 </br>
-sudo apt-get remove --auto-remove netplan.io</br>
+sudo apt remove --auto-remove netplan.io</br>
 sudo apt purge netplan.io</br>
 
 -------------------------------------------------------------------------------------------------------</br>
