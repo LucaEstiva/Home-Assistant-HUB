@@ -148,7 +148,27 @@ sudo service network-manager restart</br>
 sudo service network-manager status</br>
 </br>
 
-##Configurazione di Hostapd</br>
+-------------------------------------------------------------------------------------------------------</br>
+IP FORWARDING:</br>
+-------------------------------------------------------------------------------------------------------</br>
+Editare il file /etc/sysctl.conf</br>
+sudo nano /etc/sysctl.conf</br>
+</br>
+/# Uncomment the next line to enable packet forwarding for IPv4</br>
+/# net.ipv4.ip_forward=1 Togliere il commento ( cancellare il carattere # ) a questa riga</br>
+Diventerà:</br>
+/# Uncomment the next line to enable packet forwarding for IPv4</br>
+net.ipv4.ip_forward=1</br></br>
+</br>
+Riavviare il computer:
+sudo reboot</br>
+</br>
+Verificare il valore del flag net.ipv4.ip_forward che deve essere 1
+sysctl net.ipv4.ip_forward</br>
+</br>
+-------------------------------------------------------------------------------------------------------
+Configurazione di Hostapd</br>
+-------------------------------------------------------------------------------------------------------
 </br>
 sudo nano /etc/hostapd/hostapd.conf
 </br>
