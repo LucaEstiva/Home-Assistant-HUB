@@ -19,7 +19,17 @@ Dotato di accesso WiFi ( Access Point AP ).</br>
 Può dialogare con una rete MESH.</br>
 Necessita di una connessione WAN ( Wide Area Network - Internet ) solo se i dispositivi sono di tipo CLOUD.</br>
 </br>
+#L'HARDWARE
+Nel mio caso l'HUB è realizzato con questo PC industriale:</br>
 
+https://www.amazon.it/gp/product/B083SLWMHV/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1</br>
+
+E' stao dotato di:</br>
+Crucial CT16G4SFD824A Memoria da 16 GB Dual Rank x 8, DDR4, 2400 MT/s, PC4-19200, SODIMM, 260-Pin</br>
+Western Digital WD GREEN SATA SSD Unità allo Stato Solido Interna 2.5" M.2 2280, 120 GB</br>
+</br>
+La scheda di rete WiFi presente nel PC supporta la modalità MASTER.</br>
+</br>
 # Prima di continuare è necessario verificare che la scheda di rete supporti la modalità MASTER ( AP ):</br>
 # Vedere il file [Master_Mode.txt](Master_Mode.txt)
 </br>
