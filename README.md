@@ -133,10 +133,10 @@ wireless-essid Home_Assistant</br> # Assegnare un nome alla vostra rete WiFi
 \# Definizione del BRIDGE - br0 setup with static wan IPv4 with ISP router as gateway</br>
 auto br0</br>
 iface br0 inet static</br>
- address 192.168.3.1 \# Assegnare un indirizzo IP ( gateway ) alla vostra nuova rete: Es 192.168.4.1, 192.168.5.1</br>
- network 192.168.3.0 \# Assegnare un indirizzo IP uguale all'indirizzo gateway ma con 0 finale</br>
+ address 192.168.2.1 \# Assegnare un indirizzo IP ( gateway ) alla vostra nuova rete: Es 192.168.3.1, 192.168.4.1</br>
+ network 192.168.2.0 \# Assegnare un indirizzo IP uguale all'indirizzo gateway ma con 0 finale</br>
  netmask 255.255.255.0 \# Lasciare invariata la maschera di sottorete ( Subnet Mask )</br>
- broadcast 192.168.3.255 \# Assegnare un indirizzo IP uguale all'indirizzo gateway ma con 255 finale</br></br>
+ broadcast 192.168.2.255 \# Assegnare un indirizzo IP uguale all'indirizzo gateway ma con 255 finale</br></br>
  bridge_ports enp2s0 wlp3s0 \# Specificare le interfaccie assegnate al bridge
  bridge_stp off
  bridge_fd 0
