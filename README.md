@@ -18,7 +18,7 @@ Inoltre libera il nostro router da flussi di dati ( anche pesanti come gli strea
 Dotato di accesso WiFi ( Access Point AP ).</br>
 Può dialogare con una rete MESH.</br>
 Necessita di una connessione WAN ( Wide Area Network - Internet ) solo se i dispositivi sono di tipo CLOUD.</br>
-</br>
+
 # L'HARDWARE</br>
 Nel mio caso l'HUB è realizzato con questo PC industriale:</br>
 
