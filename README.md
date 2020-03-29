@@ -151,7 +151,7 @@ ieee80211ac=0
 macaddr_acl=0
 \# 1=wpa, 2=wep, 3=both\
 auth_algs=1
-\#\
+
 \# ignore_broadcast_ssid=1\
 
 \# WPA2 only\
