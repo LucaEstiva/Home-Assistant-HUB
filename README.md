@@ -20,6 +20,8 @@ https://www.balena.io/etcher/<br/>
 
 Durante l'installazione di Ubuntu abilitare il SERVER SSH.<br/>
 
+Usare SUDO ( Super User Do )
+
 Aggiornare la lista dei pacchetti:<br/>
 sudo apt update<br/>
 
