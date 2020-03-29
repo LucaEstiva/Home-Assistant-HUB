@@ -19,7 +19,7 @@ Dotato di accesso WiFi ( Access Point AP ).</br>
 Può dialogare con una rete MESH.</br>
 Necessita di una connessione WAN ( Wide Area Network - Internet ) solo se i dispositivi sono di tipo CLOUD.</br>
 </br>
-#L'HARDWARE
+#L'HARDWARE</br>
 Nel mio caso l'HUB è realizzato con questo PC industriale:</br>
 
 https://www.amazon.it/gp/product/B083SLWMHV/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1</br>
