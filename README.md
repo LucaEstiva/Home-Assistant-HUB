@@ -19,9 +19,8 @@ Necessita di una connessione WAN ( Wide Area Network - Internet ) solo se i disp
 <br/>
 
 # Prima di continuare è necessario verificare che la scheda di rete supporti la modalità MASTER ( AP ):<br/>
-# Vedere il file Master_Mode.txt
+# Vedere il file [Master_Mode.txt](Master_Mode.txt)
 <br/>
-[Master_Mode.txt](Master_Mode.txt)
 <br/>
 Installare Ubuntu Server scaricando l'immagine ISO da qui:<br/>
 https://ubuntu.com/download/server<br/>
