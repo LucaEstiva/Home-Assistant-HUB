@@ -28,5 +28,9 @@ sudo apt update<br/>
 Aggioranre il software:<br/>
 sudo apt upgrade<br/>
 
-
+-------------------------------------------------------------------------------------------------------</br>
+DISABILITARE IL SERVIZIO MODEM MANAGER - Potrebbe influire negativamente con il sever Home Assistant...:</br>
+-------------------------------------------------------------------------------------------------------</br>
+sudo systemctl stop ModemManager</br>
+sudo systemctl disable ModemManager</br>
 
