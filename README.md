@@ -73,7 +73,7 @@ sudo nano /etc/network/interfaces</br>
 \# ifupdown has been replaced by netplan(5) on this system.</br>
 \# See /etc/netplan for current configuration.</br>
 \# To re-enable ifupdown on this system, you can run:</br>
-\# sudo apt install ifupdown\</br>
+\# sudo apt install ifupdown</br>
 
 \# The loopback network interface</br>
 auto lo</br>
@@ -122,15 +122,15 @@ sudo nano /etc/hostapd/hostapd.conf
 
 Copiare la configurazione nel file hostapd.conf
 
-\# Wireless interface the interface used by the AP\
-interface=wlp3s0
-\# The wireless interface driver\
+\# Wireless interface the interface used by the AP</br>
+interface=wlp3s0</br>
+\# The wireless interface driver
 driver=nl80211
-\# Specify the bridge...\
+\# Specify the bridge...
 bridge=br0
-\# The country code ( BO = Bolivia, IT = Italy ) this is because we can manage the WiFi Transmit Power :)\
+\# The country code ( BO = Bolivia, IT = Italy ) this is because we can manage the WiFi Transmit Power :)
 country_code=BO
-\# Wireless environment\
+\# Wireless environment
 ssid=Home_Assistant # Il nome del vostro AP WiFi
 \# "g" simply means 2.4GHz band\
 hw_mode=g
