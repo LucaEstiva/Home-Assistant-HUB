@@ -1,7 +1,7 @@
 # Home-Assistant-HUB</br>
 # PROCEDURA NON COMPLETA !</br>
 </br>
-- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)
+
 <h1>L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !
 </h1></br>
 </br>
