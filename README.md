@@ -296,3 +296,28 @@ subnet 192.168.2.0 netmask 255.255.255.0 {</br>
   }</br>
 </br>
 }
+</br>
+</br>
+Abilitare il servizio server DHCP</br>
+sudo systemctl enable isc-dhcp-server</br>
+</br>
+Verificare che il server funzioni correttamente</br>
+sudo systemctl status isc-dhcp-server</br>
+</br>
+-------------------------------------------------------------------------------------------------------</br>
+Aggiunta di una ROUTE statica per l'instradamento dei pacchetti verso internet - IP TABLES:</br>
+-------------------------------------------------------------------------------------------------------
+Una volta aggiunta la questa regola alla tabella di routing sarà possibile accedere ad internet utilizzando il nuovo AP</br>
+</br>
+sudo iptables -t nat -A POSTROUTING -o enp1s0 -j MASQUERADE</br>
+</br>
+La regola però non è persistente, ovvero al riavvio del PC la regola non esisterà più.</br>
+E' necessario salvare la nuova regola utilizzando il comando:</br>
+</br>
+iptables-save</br>
+</br>
+E' possibile visualizzare le regoule attualmente impostate con:</br>
+</br>
+sudo iptables -S</br>
+e</br>
+sudo iptables -L</br>
