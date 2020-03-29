@@ -1,5 +1,6 @@
 # Home-Assistant-HUB</br>
-
+# PROCEDURA NON COMPLETA !</br>
+</br>
 - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)
 <h1>L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !
 </h1></br>
@@ -82,13 +83,25 @@ wifi.scan-rand-mac-address=no</br>
 \# Sostituire le coppie di 0 con i valori riportati da IFCONFING per l'interfaccia wlp_s0 o wlan</br>
 unmanaged-devices=mac:00:00:00:00:00:00</br>
 </br>
+
+-------------------------------------------------------------------------------------------------------</br>
+Abilitare la scheda di rete WiFi - Hostapd potrebbe non essere in grado di creare correttamente il novo</br>
+access point a causa dell'utilizzo della scheda WiFi da parte di un'altro software oppure a causa di</br>
+restrizioni applicate al driver della scheda...</br>
+-------------------------------------------------------------------------------------------------------</br>
+sudo nano /var/lib/NetworkManager/NetworkManager.state</br>
+</br>
+[main]</br>
+NetworkingEnabled=true</br>
+WirelessEnabled=true</br>
+WWANEnabled=true</br>
+
+
 -------------------------------------------------------------------------------------------------------</br>
 Configurare le interfacce di rete - NETWORK MANAGER:</br>
 -------------------------------------------------------------------------------------------------------</br>
 sudo nano /etc/network/interfaces</br>
 </br>
-</br>
-
 \# ifupdown has been replaced by netplan(5) on this system.</br>
 \# See /etc/netplan for current configuration.</br>
 \# To re-enable ifupdown on this system, you can run:</br>
