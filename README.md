@@ -1,8 +1,8 @@
 # Home-Assistant-HUB</br>
 
-- ![#f03c15](https://placehold.it/15/f03c15/000000?text=+
+- ![#f03c15]
 L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !
-)</br>
+</br>
 
 I dispositivi con firmware Tasmota supportano il FAULT TOLERANCE ( è possibile specificare più di una rete WiFi alla quale connettersi )</br>
 </br>
