@@ -115,11 +115,12 @@ iface lo inet loopback</br>
 allow-hotplug enp1s0</br>
 iface enp1s0 inet static</br>
   address 192.168.1.106 # Assegnare un IP statico all'interfaccia che dipende dalla vostra rete</br>
-  netmask 255.255.255.0 # La subnet mask dovrebbe funzionare se specificata in questo modo</br>
-  broadcast 192.168.1.255 # Modificare utilizzando come riferimento l'IP del vostro modem-router ovvero 192.168.1.255 potrebbe essere 192.168.0.255. Deve essere 255 finale !</br>
-  gateway 192.168.1.1</br>
+  netmask 255.255.255.0 # Lasciare invariata la maschera di sottorete ( Subnet Mask )</br>
+  broadcast 192.168.1.255 # Modificare utilizzando come riferimento l'IP del vostro modem-router ( gateway )
+                         /# ovvero 192.168.1.1 potrebbe essere 192.168.0.1. Deve essere 255 finale !</br>
+  gateway 192.168.1.1 /# Usare l'indirizzo IP del vostro modem-router ( gateway )</br>
   \# Only relevant if you make use of RESOLVCONF(8) or similar...</br>
-  dns-nameservers 8.8.8.8 8.8.4.4</br>
+  dns-nameservers 8.8.8.8 8.8.4.4 /# Specificare i server DNS ( google o altri )</br>
 </br>
 allow-hotplug enp2s0</br>
 iface enp2s0 inet dhcp</br>
@@ -132,11 +133,11 @@ wireless-essid Home_Assistant</br> # Assegnare un nome alla vostra rete WiFi
 \# Definizione del BRIDGE - br0 setup with static wan IPv4 with ISP router as gateway</br>
 auto br0</br>
 iface br0 inet static</br>
- address 192.168.3.1</br>
- network 192.168.3.0</br>
- netmask 255.255.255.0</br>
- broadcast 192.168.3.255</br>
- bridge_ports enp2s0 wlp3s0
+ address 192.168.3.1 \# Assegnare un indirizzo IP ( gateway ) alla vostra nuova rete: Es 192.168.4.1, 192.168.5.1</br>
+ network 192.168.3.0 \# Assegnare un indirizzo IP uguale all'indirizzo gateway ma con 0 finale</br>
+ netmask 255.255.255.0 \# Lasciare invariata la maschera di sottorete ( Subnet Mask )</br>
+ broadcast 192.168.3.255 \# Assegnare un indirizzo IP uguale all'indirizzo gateway ma con 255 finale</br></br>
+ bridge_ports enp2s0 wlp3s0 \# Specificare le interfaccie assegnate al bridge
  bridge_stp off
  bridge_fd 0
  bridge_maxwait 0</br>
