@@ -117,48 +117,48 @@ sudo service network-manager status</br>
 </br>
 
 ##Configurazione di Hostapd</br>
-
+</br>
 sudo nano /etc/hostapd/hostapd.conf
-
+</br>
 Copiare la configurazione nel file hostapd.conf
-
+</br>
 \# Wireless interface the interface used by the AP</br>
 interface=wlp3s0</br>
-\# The wireless interface driver
-driver=nl80211
-\# Specify the bridge...
-bridge=br0
-\# The country code ( BO = Bolivia, IT = Italy ) this is because we can manage the WiFi Transmit Power :)
-country_code=BO
-\# Wireless environment
-ssid=Home_Assistant # Il nome del vostro AP WiFi
-\# "g" simply means 2.4GHz band\
-hw_mode=g
-\# the channel to use\
-channel=10
-'#
-logger_syslog=-1
-\# QoS support\
-wmm_enabled=1
-\# limit the frequencies used to those allowed in the country\
-\# ieee80211d=1\
-\# 802.11n\
-ieee80211n=1
-\# 802.11ac\
-ieee80211ac=0
+\# The wireless interface driver</br>
+driver=nl80211</br>
+\# Specify the bridge...</br>
+bridge=br0</br>
+\# The country code ( BO = Bolivia, IT = Italy ) this is because we can manage the WiFi Transmit Power :)</br>
+country_code=BO</br>
+\# Wireless environment</br>
+ssid=Home_Assistant # Il nome del vostro AP WiFi</br>
+\# "g" simply means 2.4GHz band</br>
+hw_mode=g</br>
+\# the channel to use</br>
+channel=10</br>
+\#
+logger_syslog=-1</br>
+\# QoS support</br>
+wmm_enabled=1</br>
+\# limit the frequencies used to those allowed in the country</br>
+\# ieee80211d=1</br>
+\# 802.11n</br>
+ieee80211n=1</br>
+\# 802.11ac</br>
+ieee80211ac=0</br>
 
-\# ht_capab=[HT40+][RX-STBC1][SMPS-STATIC][SHORT-GI-20][SHORT-GI-40][DSSS_CCK-40]\
-\# Authentication and encryption\
-macaddr_acl=0
-\# 1=wpa, 2=wep, 3=both\
-auth_algs=1
+\# ht_capab=[HT40+][RX-STBC1][SMPS-STATIC][SHORT-GI-20][SHORT-GI-40][DSSS_CCK-40]</br>
+\# Authentication and encryption</br>
+macaddr_acl=0</br>
+\# 1=wpa, 2=wep, 3=both</br>
+auth_algs=1</br>
 
-\# ignore_broadcast_ssid=1
+\# ignore_broadcast_ssid=1</br>
 
-\# WPA2 only\
-wpa=2
-wpa_passphrase=pawssword # La vosrta password
-\# WPA-PSK WPA-EAP WPA-PSK-SHA256 WPA-EAP-SHA256\
-wpa_key_mgmt=WPA-PSK
-wpa_pairwise=TKIP
-rsn_pairwise=CCMP
+\# WPA2 only</br>
+wpa=2</br>
+wpa_passphrase=pawssword # La vostra password</br>
+\# WPA-PSK WPA-EAP WPA-PSK-SHA256 WPA-EAP-SHA256</br>
+wpa_key_mgmt=WPA-PSK</br>
+wpa_pairwise=TKIP</br>
+rsn_pairwise=CCMP</br>
