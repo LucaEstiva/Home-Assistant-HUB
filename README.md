@@ -119,43 +119,43 @@ sudo nano /etc/hostapd/hostapd.conf
 
 Copiare la configurazione nel file hostapd.conf
 
-# Wireless interface the interface used by the AP
+'# Wireless interface the interface used by the AP
 interface=wlp3s0
-# The wireless interface driver
+'# The wireless interface driver
 driver=nl80211
-# Specify the bridge...
+'# Specify the bridge...
 bridge=br0
-# The country code ( BO = Bolivia, IT = Italy ) this is because we can manage the WiFi Transmit Power :)
+'# The country code ( BO = Bolivia, IT = Italy ) this is because we can manage the WiFi Transmit Power :)
 country_code=BO
-# Wireless environment
+'# Wireless environment
 ssid=Home_Assistant # Il nome del vostro AP WiFi
-# "g" simply means 2.4GHz band
+'# "g" simply means 2.4GHz band
 hw_mode=g
-# the channel to use
+'# the channel to use
 channel=10
-#
+'#
 logger_syslog=-1
-# QoS support
+'# QoS support
 wmm_enabled=1
-# limit the frequencies used to those allowed in the country
-# ieee80211d=1
-# 802.11n
+'# limit the frequencies used to those allowed in the country
+'# ieee80211d=1
+'# 802.11n
 ieee80211n=1
-# 802.11ac
+'# 802.11ac
 ieee80211ac=0
 
-# ht_capab=[HT40+][RX-STBC1][SMPS-STATIC][SHORT-GI-20][SHORT-GI-40][DSSS_CCK-40]
-# Authentication and encryption
+'# ht_capab=[HT40+][RX-STBC1][SMPS-STATIC][SHORT-GI-20][SHORT-GI-40][DSSS_CCK-40]
+'# Authentication and encryption
 macaddr_acl=0
-# 1=wpa, 2=wep, 3=both
+'# 1=wpa, 2=wep, 3=both
 auth_algs=1
-#
-# ignore_broadcast_ssid=1
+'#
+'# ignore_broadcast_ssid=1
 
-# WPA2 only
+'# WPA2 only
 wpa=2
 wpa_passphrase=pawssword # La vorta password
-# WPA-PSK WPA-EAP WPA-PSK-SHA256 WPA-EAP-SHA256
+'# WPA-PSK WPA-EAP WPA-PSK-SHA256 WPA-EAP-SHA256
 wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
 rsn_pairwise=CCMP
