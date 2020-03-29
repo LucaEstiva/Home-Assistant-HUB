@@ -10,8 +10,8 @@ I dispositivi con firmware Tasmota supportano il FAULT TOLERANCE ( è possibile 
 #La ridondanza nelle infrastruttue di questo tipo dovrebbe essere fondamentale !</br>
 </br>
 Un HUB completamente indipendente per Home Assistant personalizzabile al 100%.</br>
-<br\>
-Consente di creare una rete lan DOMOTICA in grado di fornire indirizzi IP a tutti i dispostivi domotici ad esso connessi
+</br>
+Consente di creare una rete lan DOMOTICA in grado di fornire indirizzi IP a tutti i dispostivi domotici ad esso connessi</br>
 e di evitare il routing dei pacchetti ( passaggio dei pacchetti ) attraverso il router che può non essere disponibile.</br>
 Inoltre libera il nostro router da flussi di dati ( anche pesanti come gli streaming ) lasciandolo disponibile per i nostri usi.</br>
 </br>
