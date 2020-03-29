@@ -136,10 +136,10 @@ iface br0 inet static</br>
  address 192.168.2.1 \# Assegnare un indirizzo IP ( gateway ) alla vostra nuova rete: Es 192.168.3.1, 192.168.4.1</br>
  network 192.168.2.0 \# Assegnare un indirizzo IP uguale all'indirizzo gateway ma con 0 finale</br>
  netmask 255.255.255.0 \# Lasciare invariata la maschera di sottorete ( Subnet Mask )</br>
- broadcast 192.168.2.255 \# Assegnare un indirizzo IP uguale all'indirizzo gateway ma con 255 finale</br></br>
- bridge_ports enp2s0 wlp3s0 \# Specificare le interfaccie assegnate al bridge
- bridge_stp off
- bridge_fd 0
+ broadcast 192.168.2.255 \# Assegnare un indirizzo IP uguale all'indirizzo gateway ma con 255 finale</br>
+ bridge_ports enp2s0 wlp3s0 \# Specificare le interfaccie assegnate al bridge</br>
+ bridge_stp off</br>
+ bridge_fd 0</br>
  bridge_maxwait 0</br>
 </br>
 </br>
