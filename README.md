@@ -2,14 +2,14 @@
 
 - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)
 <h1>L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !
-</h1></br>
-</br>
-I dispositivi con firmware Tasmota supportano il FAULT TOLERANCE ( è possibile specificare più di una rete WiFi alla quale connettersi )</br>
-</br>
-#La ridondanza nelle infrastruttue di questo tipo dovrebbe essere fondamentale !</br>
-</br>
-Un HUB completamente indipendente per Home Assistant personalizzabile al 100%.<br/>
-</br>
+</h1>\
+\
+I dispositivi con firmware Tasmota supportano il FAULT TOLERANCE ( è possibile specificare più di una rete WiFi alla quale connettersi )\
+\
+#La ridondanza nelle infrastruttue di questo tipo dovrebbe essere fondamentale !\
+\
+Un HUB completamente indipendente per Home Assistant personalizzabile al 100%.\
+\
 Consente di creare una rete lan DOMOTICA in grado di fornire indirizzi IP a tutti i dispostivi domotici e di evitare
 il routing dei pacchetti ( passaggio dei pacchetti ) attraverso il router che può non essere disponibile.<br/>
 </br>
