@@ -123,17 +123,17 @@ Copiare la configurazione nel file hostapd.conf
 
 \# Wireless interface the interface used by the AP\
 interface=wlp3s0
-\# The wireless interface driver
+\# The wireless interface driver\
 driver=nl80211
-\# Specify the bridge...
+\# Specify the bridge...\
 bridge=br0
-\# The country code ( BO = Bolivia, IT = Italy ) this is because we can manage the WiFi Transmit Power :)
+\# The country code ( BO = Bolivia, IT = Italy ) this is because we can manage the WiFi Transmit Power :)\
 country_code=BO
-\# Wireless environment
+\# Wireless environment\
 ssid=Home_Assistant # Il nome del vostro AP WiFi
-\# "g" simply means 2.4GHz band
+\# "g" simply means 2.4GHz band\
 hw_mode=g
-\# the channel to use
+\# the channel to use\
 channel=10
 '#
 logger_syslog=-1
