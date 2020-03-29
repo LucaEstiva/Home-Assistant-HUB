@@ -1,0 +1,39 @@
+Setting up a Wifi Adapter to support "master mode"
+What we need for a wireless "base-station" or "access-point" is a wireless network card that does "master mode", which allows our Linux box to behave just like products from the likes of Linksys, Netgear & Belkin - later sections of this HOWTO should be pretty much the same whether you can find a 802.11a, 802.11b or g card that does master mode in Linux. 
+Purchasing a WiFi adapter
+Select a card that supports "master mode". Be careful when buying a card for this project: - WLAN cards documented as Linux-supported often become no longer available. As a common cost-cutting measure, wireless adapter manufacturers will revise an existing product's specifications, substituting a different chipset (or other components) without changing the (formerly Linux-compatible product's) model number. Naturally, this is a common source of confusion for individuals attempting to purchase a compatible adapter, even when they think they know which adapter to buy. Manufacturers don't help matters much, often using strange naming conventions that produce numerous confusingly similar model names and numbers. Consider: At one point D-Link offered 3 different revisions (with 3 different chipsets) of its DWL-520 adapter, as well as the (completely different) DWL-520+, which was not to be confused with the entirely unrelated DWL-G520, DWL-A520, not to mention the 8 varieties of product offered under the "DWL-620" moniker. Thus it is crucially important to pay close attention not just to manufacturer/model names, but also revision numbers (if provided), chipsets, included drivers, etc, as well. (If uncertain, consider purchasing from a retailer who offers a "consumer friendly" return policy, so the product can be returned/exchanged if it turns out to be incompatible.) 
+There are very few 802.11N USB adapters with chipsets that clearly support master mode on free software platforms. The situation is rapidly deteriorating as chipset manufacturers have not released source code or specifications in many years. One place to purchase a compatible adapter is http://www.thinkpenguin.com/. http://linuxwireless.org/ also maintains a list of adapters and information on master mode compatibility. This list can be very misleading as most adapters which had a compatible chipset have been long discontinued. 
+When selecting a PCI adapter, cards based on Atheros chipsets tend to be compatible: http://madwifi.org/ 
+
+Determine wifi adapter chipset
+Doing a Google search on the manufactures part number usually gets results e.g. "Cnet CWP-854 chipset" should give you the result of Ralink rt2561 or rt61. The other option is to plug the wifi adapter into a Linux box and type the commands: 
+sudo lspci
+for PCI adapters 
+sudo lsusb
+for USB adapters 
+sudo iwconfig
+Using these commands you should have enough clues to your wifi adapters chipset. 
+
+Test an adapter for "master mode"
+To check if an adapter and driver can do master mode you can use a program called 'iwconfig' 
+sudo iwconfig
+In the terminal window should list all available wireless interfaces. Assuming your adapter is connected and its drivers are loaded, try the following. 
+sudo iwconfig wlan1 mode master
+Replace wlan1 with whatever Ubuntu is calling your adapter. If you don’t get an error you’re in business. 
+
+mac80211 based driver
+Many newer drivers use the mac80211 framework. The iwconfig method of checking for master mode doesn't work with these drivers, because they use the new nl80211 interface for userspace communication. 
+You have to install 'iw' the new wireless configuring tool at first. 
+sudo aptitude install iw
+'iw list' shows all supported features of all installed wireless card supporting the new nl80211 interface. 
+iw list
+If there is 'AP' in the list of "Supported interface modes" your device will support the Access Point mode with hostapd. 
+...
+Supported interface modes:
+         * IBSS
+         * managed
+         * AP
+         * AP/VLAN
+         * monitor
+         * mesh point
+...
