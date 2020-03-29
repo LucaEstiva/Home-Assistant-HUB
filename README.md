@@ -152,9 +152,9 @@ macaddr_acl=0
 \# 1=wpa, 2=wep, 3=both\
 auth_algs=1
 
-\# ignore_broadcast_ssid=1\
+\# ignore_broadcast_ssid=1
 
-\# WPA2 only\
+\# WPA2 only
 wpa=2
 wpa_passphrase=pawssword # La vosrta password
 \# WPA-PSK WPA-EAP WPA-PSK-SHA256 WPA-EAP-SHA256\
