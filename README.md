@@ -137,27 +137,27 @@ hw_mode=g
 channel=10
 '#
 logger_syslog=-1
-\# QoS support
+\# QoS support\
 wmm_enabled=1
-\# limit the frequencies used to those allowed in the country
-\# ieee80211d=1
-\# 802.11n
+\# limit the frequencies used to those allowed in the country\
+\# ieee80211d=1\
+\# 802.11n\
 ieee80211n=1
-\# 802.11ac
+\# 802.11ac\
 ieee80211ac=0
 
-\# ht_capab=[HT40+][RX-STBC1][SMPS-STATIC][SHORT-GI-20][SHORT-GI-40][DSSS_CCK-40]
-\# Authentication and encryption
+\# ht_capab=[HT40+][RX-STBC1][SMPS-STATIC][SHORT-GI-20][SHORT-GI-40][DSSS_CCK-40]\
+\# Authentication and encryption\
 macaddr_acl=0
-\# 1=wpa, 2=wep, 3=both
+\# 1=wpa, 2=wep, 3=both\
 auth_algs=1
-\#
-\# ignore_broadcast_ssid=1
+\#\
+\# ignore_broadcast_ssid=1\
 
 \# WPA2 only
 wpa=2
-wpa_passphrase=pawssword # La vorta password
-\# WPA-PSK WPA-EAP WPA-PSK-SHA256 WPA-EAP-SHA256
+wpa_passphrase=pawssword # La vosrta password
+\# WPA-PSK WPA-EAP WPA-PSK-SHA256 WPA-EAP-SHA256\
 wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
 rsn_pairwise=CCMP
