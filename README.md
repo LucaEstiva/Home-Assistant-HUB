@@ -31,15 +31,15 @@ https://ubuntu.com/download/server/thank-you?version=18.04.4&architecture=amd64<
 Creare un supporto di avvio ( chiavetta USB ) utilizzando BALENAETCHER:</br>
 https://www.balena.io/etcher/</br>
 
-Durante l'installazione di Ubuntu abilitare il SERVER SSH.<br/>
+Durante l'installazione di Ubuntu abilitare il SERVER SSH.</br>
 
 Usare SUDO ( Super User Do )
 
-Aggiornare la lista dei pacchetti:<br/>
-sudo apt update<br/>
+Aggiornare la lista dei pacchetti:</br>
+sudo apt update</br>
 
-Aggiornare il software:<br/>
-sudo apt upgrade<br/>
+Aggiornare il software:</br>
+sudo apt upgrade</br>
 
 Installare i pacchetti necessari:</br>
 </br>
@@ -69,16 +69,17 @@ Configurare le interfacce di rete - NETWORK MANAGER:</br>
 sudo nano /etc/network/interfaces</br>
 </br>
 </br>
-# ifupdown has been replaced by netplan(5) on this system.  See</br>
-# /etc/netplan for current configuration.</br>
-# To re-enable ifupdown on this system, you can run:</br>
-#    sudo apt install ifupdown</br>
 
-# The loopback network interface</br>
+\# ifupdown has been replaced by netplan(5) on this system.</br>
+\# See /etc/netplan for current configuration.</br>
+\# To re-enable ifupdown on this system, you can run:</br>
+\# sudo apt install ifupdown\</br>
+
+\# The loopback network interface</br>
 auto lo</br>
 iface lo inet loopback</br>
 
-# L'interfaccia enp1s0 viene utilizzata per connettere l'HUB a internet attraveso il modem-router</br>
+# L'interfaccia enp1s0 viene utilizzata per connettere l'HUB a internet attraverso il modem-router</br>
 allow-hotplug enp1s0</br>
 iface enp1s0 inet static</br>
   address 192.168.1.106 # Assegnare un IP statico all'interfaccia che dipende dalla vostra rete</br>
