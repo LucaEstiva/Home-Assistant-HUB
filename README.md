@@ -22,7 +22,7 @@ Durante l'installazione di Ubuntu abilitare il SERVER SSH.
 Aggiornare la lista dei pacchetti:
 sudo apt update
 
-Aggiorante il software:
+Aggioranre il software:
 sudo apt upgrade
 
 
