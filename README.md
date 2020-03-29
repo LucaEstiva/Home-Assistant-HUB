@@ -62,7 +62,7 @@ sudo apt install hostapd</br>
 </br>
 
 -------------------------------------------------------------------------------------------------------</br>
-DISABILITARE IL SERVIZIO MODEM MANAGER - Potrebbe influire negativamente con il sever Home Assistant...:</br>
+DISABILITARE IL SERVIZIO MODEM MANAGER - Potrebbe influire negativamente con il server Home Assistant...:</br>
 -------------------------------------------------------------------------------------------------------</br>
 sudo systemctl stop ModemManager</br>
 sudo systemctl disable ModemManager</br>
