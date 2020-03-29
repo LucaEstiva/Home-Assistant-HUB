@@ -1,35 +1,35 @@
-# Home-Assistant-HUB<br\>
+# Home-Assistant-HUB</br>
 
 - ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)
 <h1>L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !
-</h1><br\>
-<br\>
-I dispositivi con firmware Tasmota supportano il FAULT TOLERANCE ( è possibile specificare più di una rete WiFi alla quale connettersi )<br\>
-<br\>
-#La ridondanza nelle infrastruttue di questo tipo dovrebbe essere fondamentale !<br\>
-<br\>
-Un HUB completamente indipendente per Home Assistant personalizzabile al 100%.<br\>
+</h1></br>
+</br>
+I dispositivi con firmware Tasmota supportano il FAULT TOLERANCE ( è possibile specificare più di una rete WiFi alla quale connettersi )</br>
+</br>
+#La ridondanza nelle infrastruttue di questo tipo dovrebbe essere fondamentale !</br>
+</br>
+Un HUB completamente indipendente per Home Assistant personalizzabile al 100%.</br>
 <br\>
 Consente di creare una rete lan DOMOTICA in grado di fornire indirizzi IP a tutti i dispostivi domotici e di evitare
-il routing dei pacchetti ( passaggio dei pacchetti ) attraverso il router che può non essere disponibile.<br/>
-<br\>
-Dotato di accesso WiFi ( Access Point AP ).<br/>
-Può dialogare con una rete MESH.<br/>
-Necessita di una connessione WAN ( Wide Area Network - Internet ) solo se i dispositivi sono di tipo CLOUD.<br/>
-<br/>
+il routing dei pacchetti ( passaggio dei pacchetti ) attraverso il router che può non essere disponibile.</br>
+</br>
+Dotato di accesso WiFi ( Access Point AP ).</br>
+Può dialogare con una rete MESH.</br>
+Necessita di una connessione WAN ( Wide Area Network - Internet ) solo se i dispositivi sono di tipo CLOUD.</br>
+</br>
 
-# Prima di continuare è necessario verificare che la scheda di rete supporti la modalità MASTER ( AP ):<br/>
+# Prima di continuare è necessario verificare che la scheda di rete supporti la modalità MASTER ( AP ):</br>
 # Vedere il file [Master_Mode.txt](Master_Mode.txt)
-<br/>
-<br/>
-Installare Ubuntu Server scaricando l'immagine ISO da qui:<br/>
-https://ubuntu.com/download/server<br/>
+</br>
+</br>
+Installare Ubuntu Server scaricando l'immagine ISO da qui:</br>
+https://ubuntu.com/download/server</br>
 
-VERSIONE PER PROCESSORI CON ARCHITETTURA AMD64 ( non ARM ) 64Bit<br/>
-https://ubuntu.com/download/server/thank-you?version=18.04.4&architecture=amd64<br/>
+VERSIONE PER PROCESSORI CON ARCHITETTURA AMD64 ( non ARM ) 64Bit</br>
+https://ubuntu.com/download/server/thank-you?version=18.04.4&architecture=amd64</br>
 
-Creare un supporto di avvio ( chiavetta USB ) utilizzando BALENAETCHER:<br/>
-https://www.balena.io/etcher/<br/>
+Creare un supporto di avvio ( chiavetta USB ) utilizzando BALENAETCHER:</br>
+https://www.balena.io/etcher/</br>
 
 Durante l'installazione di Ubuntu abilitare il SERVER SSH.<br/>
 
