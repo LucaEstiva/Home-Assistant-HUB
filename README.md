@@ -1,5 +1,4 @@
 # Home-Assistant-HUB</br>
-# PROCEDURA NON COMPLETA !</br>
 </br>
 
 <h1>L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !
