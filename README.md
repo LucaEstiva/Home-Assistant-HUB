@@ -1,19 +1,19 @@
-# Home-Assistant-HUB<br />
-<br />
-Guida alla realizzazione: https://lucaestiva.github.io/<br />
-<br />
-# L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !<br />
-<br />
-## I dispositivi con firmware Tasmota supportano il FAULT TOLERANCE ( è possibile specificare più di una rete WiFi alla quale connettersi )<br />
-<br />
-## La ridondanza nelle infrastruttue di questo tipo dovrebbe essere fondamentale !<br />
-<br />
-Un HUB completamente indipendente per Home Assistant personalizzabile al 100%.<br />
-<br />
+# Home-Assistant-HUB</br>
+</br>
+Guida alla realizzazione: https://lucaestiva.github.io/</br>
+</br>
+# L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !</br>
+</br>
+## I dispositivi con firmware Tasmota supportano il FAULT TOLERANCE ( è possibile specificare più di una rete WiFi alla quale connettersi )</br>
+</br>
+## La ridondanza nelle infrastruttue di questo tipo dovrebbe essere fondamentale !</br>
+</br>
+Un HUB completamente indipendente per Home Assistant personalizzabile al 100%.</br>
+</br>
 Il progetto consente di creare un Router, ed un Access Point con server DHCP ( che chiameremo HUB ) in grado di fornire</br>
 indirizzi IP a tutti i dispostivi domotici ad esso connessi e gestirne la comunicazione con il server Home Assistant,</br>
-anch'esso installato nello stesso PC.<br />
-<br />
+anch'esso installato nello stesso PC.</br>
+</br>
 Il router non sarà più necessario ( tranne per le comunicazioni via Internet )<br />
 In caso di guasto la rete domotica sarà ugualmente in grado di funzionare<br />
 Si velocizza la comunicazione tra il server Home Assistant e i dispositivi, soprattuto se il router è già impegnato...<br />
