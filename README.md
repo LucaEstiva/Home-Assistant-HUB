@@ -1,6 +1,6 @@
 # Home-Assistant-HUB<br/>
 <br/>
-Guida alla realizzazione: https://lucaestiva.github.io/<br/>
+Guida alla realizzazione: https://lucaestiva.github.io/
 <br/>
 # L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !<br/>
 <br/>
