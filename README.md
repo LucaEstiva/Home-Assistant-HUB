@@ -1,7 +1,7 @@
-# Home-Assistant-HUB<br/>
-<br/>
+# Home-Assistant-HUB\
+\
 Guida alla realizzazione: [GitHub Pages](https://lucaestiva.github.io/)
-<br/>
+\
 # L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !<br/>
 <br/>
 ## I dispositivi con firmware Tasmota supportano il FAULT TOLERANCE ( è possibile specificare più di una rete WiFi alla quale connettersi )<br/>
