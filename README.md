@@ -1,13 +1,13 @@
 # Home-Assistant-HUB<br/>
 <br/>
-Guida alla realizzazione: https://lucaestiva.github.io/
+Guida alla realizzazione: [GitHub Pages](https://lucaestiva.github.io/)<br/>
 <br/>
 # L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !<br/>
 <br/>
 ## I dispositivi con firmware Tasmota supportano il FAULT TOLERANCE ( è possibile specificare più di una rete WiFi alla quale connettersi )<br/>
 <br/>
-## La ridondanza nelle infrastruttue di questo tipo dovrebbe essere fondamentale !</br>
-</br>
+## La ridondanza nelle infrastruttue di questo tipo dovrebbe essere fondamentale !<br/>
+<br/>
 Un HUB completamente indipendente per Home Assistant personalizzabile al 100%.</br>
 </br>
 Il progetto consente di creare un Router, ed un Access Point con server DHCP ( che chiameremo HUB ) in grado di fornire</br>
@@ -33,4 +33,4 @@ La scheda di rete WiFi presente nel PC supporta la modalità MASTER.<br />
 # Vedere il file [Master_Mode.txt](Master_Mode.txt)<br />
 Se la modalità MASTER o AP non è supportata dalla vostra scheda di rete dovrete sostituirala o utlizzare una periferica USB.<br />
 <br />
-Per i dettagli veder la guida alla realizzazione: https://lucaestiva.github.io/<br />
+Per i dettagli veder la guida alla realizzazione: [GitHub Pages](https://lucaestiva.github.io/)
