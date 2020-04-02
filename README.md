@@ -11,13 +11,13 @@ I dispositivi con firmware Tasmota supportano il FAULT TOLERANCE ( è possibile 
 </br>
 Un HUB completamente indipendente per Home Assistant personalizzabile al 100%.</br>
 </br>
-Consente di creare una rete lan DOMOTICA in grado di fornire indirizzi IP a tutti i dispostivi domotici ad esso connessi</br>
-e di evitare il routing dei pacchetti ( passaggio dei pacchetti ) attraverso il router che può non essere disponibile.</br>
-Inoltre libera il nostro router da flussi di dati ( anche pesanti come gli streaming ) lasciandolo disponibile per i nostri usi.</br>
+Il progetto consente di creare un Router, ed un Access Point con server DHCP ( che chiameremo HUB ) in grado di fornire</br>
+indirizzi IP a tutti i dispostivi domotici ad esso connessi e gestirne la comunicazione con il server Home Assistant,</br>
+anch'esso installato nello stesso PC.</br>
 </br>
-Dotato di accesso WiFi ( Access Point AP ).</br>
-Può dialogare con una rete MESH.</br>
-Necessita di una connessione WAN ( Wide Area Network - Internet ) solo se i dispositivi sono di tipo CLOUD.</br>
+Il router non sarà più necessario ( tranne per le comunicazioni via Internet )<br />
+In caso di guasto la rete domotica sarà ugualmente in grado di funzionare<br />
+Si velocizza la comunicazione tra il server Home Assistant e i dispositivi, soprattuto se il router è già impegnato...<br />
 
 # L'HARDWARE</br>
 Nel mio caso l'HUB è realizzato con questo PC industriale ( barebone no RAM no Disco ):</br>
