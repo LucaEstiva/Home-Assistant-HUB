@@ -1,5 +1,7 @@
 # Home-Assistant-HUB
 
+### Nel caso in cui troviate inesattezze, errori, o vogliate suggerire miglioramenti segnalateli utilizzando Issues.
+
 Guida alla realizzazione: [GitHub Pages](https://lucaestiva.github.io/)
 
 # L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !
