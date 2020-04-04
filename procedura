@@ -1,0 +1,164 @@
+sudo apt update
+sudo apt upgrade
+
+INSTALLARE I PACCHETTI:
+
+sudo apt install ifupdown
+sudo apt install bridge-utils
+
+CONFIGURARE INTERFACCE DI RETE:
+
+sudo nano /etc/network/interfaces
+
+auto lo
+iface lo inet loopback
+
+allow-hotplug enp1s0
+iface enp1s0 inet static
+address 192.168.1.4
+netmask 255.255.255.0
+network 192.168.1.0
+gateway 192.168.1.1
+
+allow-hotplug enp2s0
+iface enp2s0 inet static
+address 192.168.2.2
+netmask 255.255.255.0
+network 192.168.2.0
+
+auto wlp3s0
+iface wlp3s0 inet static
+address 192.168.2.192
+netmask 255.255.255.0
+network 192.168.2.0
+
+auto br0
+iface br0 inet static
+address 192.168.2.1
+netmask 255.255.255.0
+network 192.168.2.0
+broadcast 192.168.2.255
+bridge_ports enp2s0 wlp3s0
+bridge_stp off
+bridge_fd 0
+bridge_maxwait 0
+
+RIMUOVERE NETPLAN:
+
+systemctl stop systemd-networkd.socket systemd-networkd networkd-dispatcher systemd-networkd-wait-online
+
+systemctl disable systemd-networkd.socket systemd-networkd networkd-dispatcher systemd-networkd-wait-online
+
+systemctl mask systemd-networkd.socket systemd-networkd networkd-dispatcher systemd-networkd-wait-online
+
+apt-get --assume-yes purge nplan netplan.io
+
+ABILITARE NETWORKING:
+
+sudo systemctl unmask networking
+sudo systemctl enable networking
+sudo systemctl restart networking
+
+CONFIGURARE SERVER DNS:
+
+sudo nano /etc/systemd/resolved.conf
+....
+DNS=8.8.8.8 8.8.4.4
+....
+
+sudo systemctl restart systemd-resolved
+
+ABILITARE IP FORWARDING:
+sudo nano /etc/sysctl.conf
+
+RIAVVIARE IL SERVER:
+sudo reboot
+
+TEST DNS:
+nslookup www.google.it
+
+ACCESS POINT:
+
+INSTALLARE I PACCHETTI:
+sudo apt install wireless-tools
+sudo apt install hostapd
+
+CONFIGURARE ACCESS POINT:
+ssid=Nome del nuovo access point
+wpa_passphrase=Password access point
+sudo nano /etc/hostapd/hostapd.conf
+
+interface=wlp3s0
+driver=nl80211
+bridge=br0
+country_code=BO
+ssid=APNAME
+hw_mode=g
+channel=10
+logger_syslog=-1
+wmm_enabled=1
+macaddr_acl=0
+auth_algs=1
+wpa=2
+wpa_passphrase=APPASSWORD
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+
+TEST ACCESS POINT:
+sudo hostapd /etc/hostapd/hostapd.conf
+
+ABILITARE SERVIZIO ACCESS POINT:
+sudo nano /etc/default/hostapd
+DAEMON_CONF="/etc/hostapd/hostapd.conf"
+
+sudo systemctl unmask hostapd
+sudo systemctl enable hostapd
+sudo systemctl start hostapd
+sudo systemctl status hostapd
+
+SERVER DHCP:
+
+INSTALLARE IL PACCHETTO:
+sudo apt install isc-dhcp-server
+
+CONFIGURARE SERVER DHCP 1:
+
+sudo nano /etc/default/isc-dhcp-server
+INTERFACESv4="br0"
+
+CONFIGURARE SERVER DHCP 2:
+
+sudo nano /etc/dhcp/dhcpd.conf
+
+option domain-name "domotica.org";
+option domain-name-servers 8.8.8.8, 8.8.4.4;
+ddns-update-style none;
+authoritative;
+
+subnet 192.168.2.0 netmask 255.255.255.0 {
+range 192.168.2.2 192.168.2.250;
+option domain-name-servers 8.8.8.8;
+option domain-name "domotica.org";
+option subnet-mask 255.255.255.0;
+option routers 192.168.2.1;
+option broadcast-address 192.168.2.255;
+option netbios-name-servers 192.168.2.1;
+option netbios-node-type 2;
+default-lease-time -1;
+max-lease-time -1;
+}
+
+ABILITARE SERVER DHCP:
+sudo systemctl start isc-dhcp-server
+sudo systemctl enable isc-dhcp-server
+
+ROUTING:
+
+sudo iptables -t nat -A POSTROUTING -o enp1s0 -j MASQUERADE 
+
+sudo apt install iptables-persistent
+
+Salvare IPV4 e IPV6
+
+RIAVVIARE L'HUB !!!
