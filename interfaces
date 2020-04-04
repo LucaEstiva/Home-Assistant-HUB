@@ -1,0 +1,21 @@
+auto lo
+iface lo inet loopback
+
+allow-hotplug enp1s0
+iface enp1s0 inet static
+address 192.168.1.4
+netmask 255.255.255.0
+network 192.168.1.0
+gateway 192.168.1.1
+
+allow-hotplug enp2s0
+iface enp2s0 inet static
+address 192.168.2.2
+netmask 255.255.255.0
+network 192.168.2.0
+
+auto wlp3s0
+iface wlp3s0 inet static
+address 192.168.2.192
+netmask 255.255.255.0
+network 192.168.2.0
