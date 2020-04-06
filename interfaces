@@ -3,6 +3,7 @@ iface lo inet loopback
 
 # Gli indirizzi IP relativi alla connsessione dell'HUB con il Modem Router sono da configurare
 # secondo le esigenze per la connessione.
+# Per maggiori dettagli vedere la guida.
 allow-hotplug enp1s0
 iface enp1s0 inet static
 address 192.168.1.10
