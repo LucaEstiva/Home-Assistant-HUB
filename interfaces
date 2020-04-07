@@ -16,3 +16,16 @@ iface enp2s0 inet manual
 
 auto wlp3s0
 iface wlp3s0 inet manual
+
+# Address è l'indirizzo IP con cui sarà possibile accedere a
+# Home Assistant
+auto br0
+iface br0 inet static
+address 192.168.2.1
+netmask 255.255.255.0
+network 192.168.2.0
+broadcast 192.168.2.255
+bridge_ports enp2s0 wlp3s0
+bridge_stp off
+bridge_fd 0
+bridge_maxwait 0
