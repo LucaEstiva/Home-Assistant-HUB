@@ -4,6 +4,8 @@
 
 Guida alla realizzazione: [GitHub Pages](https://lucaestiva.github.io/)
 
+[Video guida](https://youtu.be/8yDdO18deoA) 
+
 # L'HUB è estremamente importante. Senza di esso non saremo in grado di utilizzare nessun dispositivo nella nostra casa !
 
 ## I dispositivi con firmware Tasmota supportano il FAULT TOLERANCE ( è possibile specificare più di una rete WiFi alla quale connettersi )
