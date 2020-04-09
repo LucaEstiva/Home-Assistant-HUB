@@ -2,7 +2,7 @@
 
 ### Nel caso in cui troviate inesattezze, errori, o vogliate suggerire miglioramenti segnalateli utilizzando Issues.
 
-Guida alla realizzazione: [GitHub Pages](https://lucaestiva.github.io/)
+[Guida alla realizzazione](https://lucaestiva.github.io/)
 
 [Video guida](https://youtu.be/8yDdO18deoA) 
 
