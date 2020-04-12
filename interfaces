@@ -11,6 +11,11 @@ netmask 255.255.255.0
 network 192.168.1.0
 gateway 192.168.1.1
 
+# Oppure utilizzare un indirizzo IP assegnato dal router
+#auto enp1s0
+#allow-hotplug enp1s0
+#iface enp1s0 inet dhcp
+
 allow-hotplug enp2s0
 iface enp2s0 inet manual
 
