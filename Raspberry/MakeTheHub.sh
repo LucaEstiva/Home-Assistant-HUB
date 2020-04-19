@@ -143,20 +143,6 @@ fi
 #
 echo -e "${GREEN}Avvio networking...${NC}"
 
-# Avvio del servizio networking:
-#sudo systemctl unmask networking
-#sudo systemctl enable networking
-#sudo systemctl restart networking
-
-
-#
-#if systemctl is-active --quiet networking; then
-#	echo "Networking service is runnig... OK!"
-#else
-#	echo "Networking service is not started. Check for problems and run the script again."
-#	echo "Script execution terminated !"
-#	exit 1
-#fi
 
 ### DNS
 
@@ -206,11 +192,9 @@ sed -i 's/#DAEMON_CONF=""/DAEMON_CONF="\/etc\/hostapd\/hostapd.conf"/g' /etc/def
 
 ### DHCP SERVER
 
-
 #
 echo -e "${GREEN}Configuro server DHCP...${NC}"
 
-# '"${VAR}"'
 # Modifica configurazione server dhcp in /etc/default/isc-dhcp-server
 sed -i 's/INTERFACESv4=""/INTERFACESv4="'"${WiFiIF}"'"/g' /etc/default/isc-dhcp-server
 
@@ -243,8 +227,6 @@ default-lease-time -1;
 max-lease-time -1;
 }
 EOF
-
-
 
 #
 echo -e "${YELLOW}Procedura terminata con successo !"
