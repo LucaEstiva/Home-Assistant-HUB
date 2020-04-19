@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Exit on error
-#set -e
 
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
@@ -62,6 +60,23 @@ sudo apt upgrade -y
 
 
 #
+echo -e "${GREEN}Installo pacchetti necessari...${NC}"
+#
+echo -e "${GREEN}Installo ifupdown...${NC}"
+sudo apt install ifupdown
+# 
+echo -e "${GREEN}Installo wireless-tools...${NC}"
+sudo apt install wireless-tools -y
+#
+echo -e "${GREEN}Installo hostapd...${NC}"
+sudo apt install hostapd -y
+# Installa server dhcp
+echo -e "${GREEN}Installo isc-dhcp-server...${NC}"
+sudo apt install isc-dhcp-server -y
+
+
+
+#
 echo -e "${GREEN}Rimuovo modemmanger...${NC}"
 
 #
@@ -84,11 +99,7 @@ if ["" == "$PKG_OK"]; then
 fi
 
 #
-echo -e "${GREEN}Installo networking...${NC}"
-#
-sudo apt install ifupdown
-#
-sudo apt install bridge-utils
+echo -e "${GREEN}Configuro networking...${NC}"
 
 # Elimina e ricrea il file - vuoto.
 if test -f /etc/network/interfaces; then
@@ -105,10 +116,7 @@ iface lo inet loopback
 
 auto $LanIF1
 allow-hotplug $LanIF1
-iface $LanIF1 inet static
-address 192.168.1.6
-netmask 255.255.255.0
-gateway 192.168.1.1
+iface $LanIF1 inet dhcp
 
 auto $WiFiIF
 iface $WiFiIF inet static
@@ -136,7 +144,7 @@ fi
 echo -e "${GREEN}Avvio networking...${NC}"
 
 # Avvio del servizio networking:
-sudo systemctl unmask networking
+#sudo systemctl unmask networking
 #sudo systemctl enable networking
 #sudo systemctl restart networking
 
@@ -168,14 +176,6 @@ sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 
 ### HOSTAPD
 
-echo -e "${GREEN}Installo hostapd...${NC}"
-
-# CREA ACCESS POINT WIRELESS
-sudo apt install wireless-tools -y
-#
-sudo apt install hostapd -y
-
-#
 echo -e "${GREEN}Configuro hostapd...${NC}"
 
 # Copy configuration to hostapd configuration file - 5Ghz WiFi Access Point
@@ -202,36 +202,17 @@ EOF
 
 #
 sed -i 's/#DAEMON_CONF=""/DAEMON_CONF="\/etc\/hostapd\/hostapd.conf"/g' /etc/default/hostapd
-#
-echo -e "${GREEN}Avvio hostapd...${NC}"
 
-# Install and start hostapd service
-sudo systemctl unmask hostapd
-sudo systemctl enable hostapd
-sudo systemctl start hostapd
-
-# Verifica se il servizio hostapd è in esecuzione:
-if systemctl is-active --quiet hostapd; then
-	echo "Hostapd service is runnig... OK!"
-else
-	echo "Hostapd service is not started. Check for problems and run the script again."
-	echo "Script execution terminated !"
-	exit 1
-fi
 
 ### DHCP SERVER
 
-#
-echo -e "${GREEN}Installo server DHCP...${NC}"
 
-# Installa server dhcp
-sudo apt install isc-dhcp-server -y
 #
 echo -e "${GREEN}Configuro server DHCP...${NC}"
 
 # '"${VAR}"'
 # Modifica configurazione server dhcp in /etc/default/isc-dhcp-server
-sed -i 's/INTERFACESv4=""/INTERFACESv4=="'"${WiFiIF}"'"/g' /etc/default/isc-dhcp-server
+sed -i 's/INTERFACESv4=""/INTERFACESv4="'"${WiFiIF}"'"/g' /etc/default/isc-dhcp-server
 
 # Verifica se il servizio isc-dhcp-server è in esecuzione:
 if test -f /etc/dhcp/dhcpd.conf; then
@@ -251,12 +232,6 @@ authoritative;
 subnet 192.168.2.0 netmask 255.255.255.0 {
 range 192.168.2.5 192.168.2.250;
 option domain-name-servers 8.8.8.8;
-ddns-update-style none;
-authoritative;
-
-subnet 192.168.2.0 netmask 255.255.255.0 {
-range 192.168.2.5 192.168.2.250;
-option domain-name-servers 8.8.8.8;
 option domain-name "homeassistant.org";
 option subnet-mask 255.255.255.0;
 option routers 192.168.2.1;
@@ -269,43 +244,30 @@ max-lease-time -1;
 }
 EOF
 
-#
-echo -e  "${GREEN}Avvio server DHCP...${NC}"
 
-# RIAVVIA SERVER DHCP
-sudo systemctl restart isc-dhcp-server
-
-# Verifica se il servizio isc-dhcp-server è in esecuzione:
-if systemctl is-active --quiet isc-dhcp-server; then
-        echo "isc-dhcp-server service is runnig... OK!"
-else
-        echo "isc-dhcp-server service is not started. Check for problems and run the script again."
-        echo "Script execution terminated !"
-        exit 1
-fi
 
 #
-echo -e "${GREEN}Aggiungo iptable...${NC}"
+echo -e "${YELLOW}Procedura terminata con successo !"
+echo -e "Tutti i servizi verranno avviati..."
+echo -e "Successivamente l'hub verrà ora riavviato per rendere attive tutte le mofiche..."
+echo -e "Dopo il riavvio sarà possibile consultare il file di log MakeTheHub.log${NC}"
+#
+read -p "Premere invio per continuare..."
 
 #
-sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+echo "Log attivazione servizi..." > MakeTheHub.log
 
 #
-echo -e "${GREEN}Installo iptables-presistent e salvo iptable...${NC}"
-
-# Installa iptables-presistent e salva route ( iptable - Netfilter )
-echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
-echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
-
-#
-sudo apt -y install iptables-persistent
-
-#
-echo -e "${GREEN}Avvio networking...${NC}"
+echo "Avvio networking..." >> MakeTheHub.log
 
 # Avvio del servizio networking:
+sudo systemctl unmask networking
 sudo systemctl enable networking
-sudo systemctl restart networking
+sudo systemctl restart networking.service
+
+# Rinnovo indirizzo IP eth0 dhcp
+sudo dhclient -r
+sudo dhclient
 
 #
 if systemctl is-active --quiet networking; then
@@ -317,10 +279,52 @@ else
 fi
 
 #
-echo -e "${YELLOW}Procedura terminata con successo !"
-echo -e "L'HUB verrà ora riavviato per rendere attive tutte le mofiche...${NC}"
+echo "Avvio hostapd..." >> MakeTheHub.log
+
+# Start hostapd service
+sudo systemctl unmask hostapd
+sudo systemctl enable hostapd
+sudo systemctl start hostapd
+
+
+# Verifica se il servizio hostapd è in esecuzione:
+if systemctl is-active --quiet hostapd; then
+	echo "Hostapd service is runnig... OK!" >> MakeTheHub.log
+else
+	echo "Hostapd service is not started. Check for problems and run the script again." >> MakeTheHub.log
+	echo "Script execution terminated !" >> MakeTheHub.log
+	exit 1
+fi
+
 #
-read -p "Press enter to continue..."
+echo "Avvio isc-dhcp-server..." >> MakeTheHub.log
+
+# RIAVVIA SERVER DHCP
+sudo systemctl restart isc-dhcp-server
+
+# Verifica se il servizio isc-dhcp-server è in esecuzione:
+if systemctl is-active --quiet isc-dhcp-server; then
+		echo "isc-dhcp-server service is runnig... OK!" >> MakeTheHub.log
+else
+	echo "isc-dhcp-server service is not started. Check for problems and run the script again." >> MakeTheHub.log
+	echo "Script execution terminated !" >> MakeTheHub.log
+        exit 1
+fi
+
+#
+echo "Aggiungo iptable..." >> MakeTheHub.log
+#
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+#
+echo "Installo iptables-presistent e salvo iptable..." >> MakeTheHub.log
+
+# Installa iptables-presistent e salva route ( iptable - Netfilter )
+echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
+
+#
+sudo apt -y install iptables-persistent
 
 #
 sudo reboot
