@@ -137,18 +137,18 @@ echo -e "${GREEN}Avvio networking...${NC}"
 
 # Avvio del servizio networking:
 sudo systemctl unmask networking
-sudo systemctl enable networking
-
+#sudo systemctl enable networking
+#sudo systemctl restart networking
 
 
 #
-if systemctl is-active --quiet networking; then
-	echo "Networking service is runnig... OK!"
-else
-	echo "Networking service is not started. Check for problems and run the script again."
-	echo "Script execution terminated !"
-	exit 1
-fi
+#if systemctl is-active --quiet networking; then
+#	echo "Networking service is runnig... OK!"
+#else
+#	echo "Networking service is not started. Check for problems and run the script again."
+#	echo "Script execution terminated !"
+#	exit 1
+#fi
 
 ### DNS
 
@@ -299,6 +299,22 @@ echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo deb
 
 #
 sudo apt -y install iptables-persistent
+
+#
+echo -e "${GREEN}Avvio networking...${NC}"
+
+# Avvio del servizio networking:
+sudo systemctl enable networking
+sudo systemctl restart networking
+
+#
+if systemctl is-active --quiet networking; then
+	echo "Networking service is runnig... OK!"
+else
+	echo "Networking service is not started. Check for problems and run the script again."
+	echo "Script execution terminated !"
+	exit 1
+fi
 
 #
 echo -e "${YELLOW}Procedura terminata con successo !"
