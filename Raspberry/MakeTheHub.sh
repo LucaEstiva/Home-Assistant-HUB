@@ -231,7 +231,7 @@ EOF
 #
 echo -e "${YELLOW}Procedura terminata con successo !"
 echo -e "Tutti i servizi verranno avviati..."
-echo -e "Successivamente l'hub verrà ora riavviato per rendere attive tutte le mofiche..."
+echo -e "Successivamente l'hub verrà riavviato per rendere attive tutte le mofiche..."
 echo -e "Dopo il riavvio sarà possibile consultare il file di log MakeTheHub.log${NC}"
 #
 read -p "Premere invio per continuare..."
