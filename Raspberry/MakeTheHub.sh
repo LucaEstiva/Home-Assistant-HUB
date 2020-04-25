@@ -64,6 +64,9 @@ echo -e "${GREEN}Installo pacchetti necessari...${NC}"
 #
 echo -e "${GREEN}Installo ifupdown...${NC}"
 sudo apt install ifupdown
+# Installa server dhcp
+echo -e "${GREEN}Installo bridge-utils...${NC}"
+sudo apt install bridge-utils -y
 # 
 echo -e "${GREEN}Installo wireless-tools...${NC}"
 sudo apt install wireless-tools -y
@@ -116,12 +119,20 @@ iface lo inet loopback
 
 auto $LanIF1
 allow-hotplug $LanIF1
-iface $LanIF1 inet dhcp
+iface $LanIF1 inet manual
 
 auto $WiFiIF
 iface $WiFiIF inet static
 address 192.168.2.1
 netmask 255.255.255.0
+
+auto br0
+allow-hotplug br0
+iface br0 inet dhcp
+bridge_ports $LanIF1
+bridge_stp off
+bridge_fd 0
+bridge_maxwait 0
 EOF
 
 #
@@ -140,9 +151,18 @@ if ["" == "$PKG_OK"]; then
         sudo apt-get --assume-yes purge nplan netplan.io
 fi
 
+# RIMOZIONE UFW
+
+#
+PKG_OK=$(dpkg-query -W --showformat='${Status}\n' ufw|grep "install ok installed")
+#
+if ["" == "$PKG_OK"]; then
+  echo "Removing network-manager..."
+  sudo apt -y purge ufw
+fi
+
 #
 echo -e "${GREEN}Avvio networking...${NC}"
-
 
 ### DNS
 
@@ -160,13 +180,15 @@ echo -e "${GREEN}Abilito IP FORWARDING...${NC}"
 # ABILITARE IP FORWARDING:
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 
+sudo systemctl restart systemd-resolved
+
 ### HOSTAPD
 
 echo -e "${GREEN}Configuro hostapd...${NC}"
 
 # Copy configuration to hostapd configuration file - 5Ghz WiFi Access Point
 cat <<EOF >/etc/hostapd/hostapd.conf
-interface=wlan0
+interface=$WiFiIF
 driver=nl80211
 country_code=US
 ssid=$APName
@@ -248,8 +270,21 @@ sudo systemctl enable networking
 sudo systemctl restart networking.service
 
 # Rinnovo indirizzo IP eth0 dhcp
-sudo dhclient -r
+sudo dhclient -r && sudo dhclient
+sudo dhclient -r && sudo dhclient br0
 sudo dhclient
+sudo dhclient -v -r eth0
+dhclient -r -v eth0 && rm /var/lib/dhcp/dhclient.* ; dhclient -v eth0
+sudo dhclient -r br0 && rm /var/lib/dhcp/dhclient.* ;
+
+ubuntu@ubuntu:~$ sudo dhclient -r br0 && rm /var/lib/dhcp/dhclient.* ;
+rm: remove write-protected regular file '/var/lib/dhcp/dhclient.br0.leases'? y
+rm: cannot remove '/var/lib/dhcp/dhclient.br0.leases': Permission denied
+rm: remove write-protected regular file '/var/lib/dhcp/dhclient.eth0.leases'? y
+rm: cannot remove '/var/lib/dhcp/dhclient.eth0.leases': Permission denied
+rm: remove write-protected regular file '/var/lib/dhcp/dhclient.leases'? y
+rm: cannot remove '/var/lib/dhcp/dhclient.leases': Permission denied
+
 
 #
 if systemctl is-active --quiet networking; then
@@ -297,6 +332,7 @@ fi
 echo "Aggiungo iptable..." >> MakeTheHub.log
 #
 sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING -o br0 -j MASQUERADE
 
 #
 echo "Installo iptables-presistent e salvo iptable..." >> MakeTheHub.log
