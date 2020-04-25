@@ -270,20 +270,7 @@ sudo systemctl enable networking
 sudo systemctl restart networking.service
 
 # Rinnovo indirizzo IP eth0 dhcp
-sudo dhclient -r && sudo dhclient
 sudo dhclient -r && sudo dhclient br0
-sudo dhclient
-sudo dhclient -v -r eth0
-dhclient -r -v eth0 && rm /var/lib/dhcp/dhclient.* ; dhclient -v eth0
-sudo dhclient -r br0 && rm /var/lib/dhcp/dhclient.* ;
-
-ubuntu@ubuntu:~$ sudo dhclient -r br0 && rm /var/lib/dhcp/dhclient.* ;
-rm: remove write-protected regular file '/var/lib/dhcp/dhclient.br0.leases'? y
-rm: cannot remove '/var/lib/dhcp/dhclient.br0.leases': Permission denied
-rm: remove write-protected regular file '/var/lib/dhcp/dhclient.eth0.leases'? y
-rm: cannot remove '/var/lib/dhcp/dhclient.eth0.leases': Permission denied
-rm: remove write-protected regular file '/var/lib/dhcp/dhclient.leases'? y
-rm: cannot remove '/var/lib/dhcp/dhclient.leases': Permission denied
 
 
 #
@@ -331,7 +318,6 @@ fi
 #
 echo "Aggiungo iptable..." >> MakeTheHub.log
 #
-sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 sudo iptables -t nat -A POSTROUTING -o br0 -j MASQUERADE
 
 #
